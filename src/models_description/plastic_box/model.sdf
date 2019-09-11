@@ -7,18 +7,18 @@
         <geometry>
           <mesh>
             <uri>model://plastic_box/meshes/Plastic box.dae</uri>
+	    <size>0.05 0.05 0.1</size>
           </mesh>
-	  <size>0.05 0.05 0.1
-	  </size>
+	  
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
             <uri>model://plastic_box/meshes/Plastic box.dae</uri>
+	    <size>0.05 0.05 0.1</size>
           </mesh>
-          <size>0.05 0.05 0.1
-	  </size>
+          
         </geometry>
       </visual>
     </link>
