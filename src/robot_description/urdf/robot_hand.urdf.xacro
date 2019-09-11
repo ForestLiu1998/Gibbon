@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="hand">
+  <xacro:macro name="hand" params="connected_to:='' rpy:='0 0 0' xyz:='0 0 0' ">
+
+    <xacro:unless value="${connected_to == ''}">
+      <joint name="hand_joint" type="fixed">
+        <parent link="${connected_to}"/>
+        <child link="hand"/>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+      </joint>
+    </xacro:unless>
+
+    <link name="hand">
+      <visual>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/hand/visual/hand.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/hand/collision/hand.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia
+          ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="leftfinger">
+      <visual>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/hand/visual/finger.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/hand/collision/finger.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia
+          ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="rightfinger">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/hand/visual/finger.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+        <geometry>
+          <mesh filename="package://robot_description/meshes/hand/collision/finger.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia
+          ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <joint name="finger_joint1" type="prismatic">
+      <parent link="hand"/>
+      <child link="leftfinger"/>
+      <origin xyz="0 0 0.0584" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
+    </joint>
+
+    <joint name="finger_joint2" type="prismatic">
+      <parent link="hand"/>
+      <child link="rightfinger"/>
+      <origin xyz="0 0 0.0584" rpy="0 0 0"/>
+      <axis xyz="0 -1 0"/>
+      <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
+      <mimic joint="finger_joint1" />
+    </joint>
+  </xacro:macro>
+</robot>

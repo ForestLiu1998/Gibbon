@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  
+<xacro:macro name="robot_hand_gazebo">
+
+
+  <transmission name="finger_tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_joint1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_motor1">
+      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> -->
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="finger_tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="finger_joint2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="finger_motor2">
+      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> -->
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+  <gazebo reference="hand">
+    <material>Gazebo/Orange</material>
+    <!-- <selfCollide>true</selfCollide> -->
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="leftfinger">
+    <material>Gazebo/Orange</material>
+    <!-- <selfCollide>true</selfCollide> -->
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="rightfinger">
+    <material>Gazebo/Orange</material>
+    <!-- <selfCollide>true</selfCollide> -->
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+
+
+
+
+
+
+
+  </xacro:macro>
+</robot>

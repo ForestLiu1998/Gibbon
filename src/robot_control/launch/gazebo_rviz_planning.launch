@@ -1,0 +1,33 @@
+<launch>
+
+  <arg name="sim" default="true" />
+  <arg name="debug" default="false" />
+  <arg name="gazebo_gui" default="false"/>
+  <arg name="run_rviz" default="true" />
+
+  <!-- start gazebo -->
+  <include file="$(find robot_gazebo)/launch/gazebo.launch" if="$(arg sim)" >
+    <arg name="gui" value="$(arg gazebo_gui)" />
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="use_control" default="true"/>
+  </include>
+
+  <!-- Remap follow_joint_trajectory -->
+  <remap if="$(arg sim)" from="/robot_controller/follow_joint_trajectory" to="/gazebo_robot_controller/follow_joint_trajectory"/>
+  <remap if="$(arg sim)" from="/hand_controller/follow_joint_trajectory" to="/gazebo_hand_controller/follow_joint_trajectory"/>
+  
+  <!-- start moveit planning -->
+  <include file="$(find robot_moveit_config)/launch/move_group.launch">
+    <arg name="debug" default="$(arg debug)" />
+  </include>
+
+  <!-- start rviz -->
+  <include file="$(find robot_moveit_config)/launch/moveit_rviz.launch" if="$(arg run_rviz)" >
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="config" value="true"/>
+  </include>
+
+</launch>

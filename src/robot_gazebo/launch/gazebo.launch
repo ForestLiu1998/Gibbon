@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- the arguments of the gazebo -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="false"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="use_control" default="true"/>
+
+  <!-- launch a world in gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"> 
+    <arg name="world_name" value="$(find robot_gazebo)/worlds/workspace.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- spawn a robot model -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find robot_description)/urdf/irb120_3_58.urdf.xacro'" />
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+      args="-urdf -model abbrobot -param robot_description -x 0 -y 0 -z 0 -R 0 -P 0 -Y 0"/> 
+
+  <!-- start the robot controller -->
+  <include file="$(find robot_gazebo)/launch/robot_controller.launch" if="$(arg use_control)"/>
+
+</launch>
+

@@ -1,0 +1,35 @@
+<launch>
+  <arg name="sim" default="true" />
+  <arg name="debug" default="false" />
+  <arg name="run_rviz" default="true" />
+    
+  <!-- Remap follow_joint_trajectory -->
+  <remap if="$(arg sim)" from="/robot_controller/follow_joint_trajectory" to="/gazebo_robot_controller/follow_joint_trajectory"/>
+  <remap if="$(arg sim)" from="/hand_controller/follow_joint_trajectory" to="/gazebo_hand_controller/follow_joint_trajectory"/>
+  
+  <!-- Launch moveit -->
+  <include file="$(find robot_moveit_config)/launch/move_group.launch">
+    <arg name="debug" default="$(arg debug)" />
+  </include>
+
+    <!-- If needed, broadcast static tf for robot root -->
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world panda_link0" /> -->
+
+  <!-- We do not have a robot connected, so publish fake joint states -->
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="$(arg use_gui)"/>
+    <rosparam param="/source_list">[/move_group/fake_controller_joint_states]</rosparam>
+  </node>
+  <node name="joint_state_desired_publisher" pkg="topic_tools" type="relay" args="joint_states joint_states_desired" /> -->
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" /> -->
+    
+  <!-- <remap from="/joint_states" to="/joint_states_desired" /> -->
+
+  <include file="$(find robot_moveit_config)/launch/moveit_rviz.launch" if="$(arg run_rviz)" >
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="config" value="true"/>
+  </include>
+
+</launch>

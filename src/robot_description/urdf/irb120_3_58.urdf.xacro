@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<robot name="abb_irb120_3_58" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find robot_description)/urdf/common_materials.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/irb120_3_58_robot.urdf.xacro" />	
+  <xacro:include filename="$(find robot_description)/urdf/irb120_3_58_gazebo.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/robot_hand.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/robot_hand_gazebo.urdf.xacro" />
+
+  <xacro:abb_irb120_3_58 />
+  <xacro:abb_irb120_3_58_g />
+
+  <xacro:hand rpy="0 ${pi/2} 0" xyz='0 0 0' connected_to="tool0" />
+  <xacro:robot_hand_gazebo />
+
+  <!-- Fix robot to Gazebo world -->
+  <link name="world"/>
+  <joint name="world-base_link-fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+</robot>
+
+

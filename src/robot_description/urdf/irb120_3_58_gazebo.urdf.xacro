@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  
+<xacro:macro name="abb_irb120_3_58_g">
+
+  <!-- get base ABB IRB120 model -->
+
+
+  <!-- transmission list -->
+  <xacro:macro name="robot_transmission" params="transmission_name joint_name actuator_name hardwareInterface">
+    <transmission name="${transmission_name}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${joint_name}">
+        <hardwareInterface>${hardwareInterface}</hardwareInterface>
+      </joint>
+      <actuator name="${actuator_name}">
+        <!-- <hardwareInterface>${hardwareInterface}</hardwareInterface> -->
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+  <xacro:robot_transmission transmission_name="tran1" joint_name="joint_1" actuator_name="motor1" 
+    hardwareInterface="hardware_interface/PositionJointInterface"/>
+  <xacro:robot_transmission transmission_name="tran2" joint_name="joint_2" actuator_name="motor2" 
+    hardwareInterface="hardware_interface/PositionJointInterface"/>
+  <xacro:robot_transmission transmission_name="tran3" joint_name="joint_3" actuator_name="motor3" 
+    hardwareInterface="hardware_interface/PositionJointInterface"/>
+  <xacro:robot_transmission transmission_name="tran4" joint_name="joint_4" actuator_name="motor4" 
+    hardwareInterface="hardware_interface/PositionJointInterface"/>
+  <xacro:robot_transmission transmission_name="tran5" joint_name="joint_5" actuator_name="motor5" 
+    hardwareInterface="hardware_interface/PositionJointInterface"/>
+  <xacro:robot_transmission transmission_name="tran6" joint_name="joint_6" actuator_name="motor6" 
+    hardwareInterface="hardware_interface/PositionJointInterface"/>
+
+
+  <!-- Gazebo-specific link properties -->
+  <xacro:macro name="gazebo_link" params="link_name material turnGravityOff">
+    <gazebo reference="${link_name}">
+      <material>${material}</material>
+      <!-- <selfCollide>true</selfCollide> -->
+      <turnGravityOff>${turnGravityOff}</turnGravityOff>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:gazebo_link link_name="base_link" material="Gazebo/Orange" turnGravityOff="true"/>
+  <xacro:gazebo_link link_name="link_1" material="Gazebo/Orange" turnGravityOff="true"/>
+  <xacro:gazebo_link link_name="link_2" material="Gazebo/Orange" turnGravityOff="true"/>
+  <xacro:gazebo_link link_name="link_3" material="Gazebo/Orange" turnGravityOff="true"/>
+  <xacro:gazebo_link link_name="link_4" material="Gazebo/Orange" turnGravityOff="true"/>
+  <xacro:gazebo_link link_name="link_5" material="Gazebo/Orange" turnGravityOff="true"/>
+  <xacro:gazebo_link link_name="link_6" material="Gazebo/Orange" turnGravityOff="true"/>
+
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <!-- <robotNamespace>/</robotNamespace> -->
+      <!-- <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> -->
+    </plugin>
+  </gazebo>  
+
+  </xacro:macro>
+</robot>

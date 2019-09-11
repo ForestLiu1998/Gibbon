@@ -1,0 +1,130 @@
+<sdf version='1.6'>
+  <world name='default'>
+
+    <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- <gui fullscreen='0'>
+      <plugin name='keyboard' filename='libKeyboardGUIPlugin.so'/>
+    </gui> -->
+
+    <!-- <gravity>0 0 -9.8</gravity>
+      <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics> -->
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+
+    <!-- <include>
+      <uri>model://depthcamera</uri>
+      <name>depthcamera</name>
+      <pose>0 -0.5 1  0 1.57 0</pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://woodencase</uri>
+      <name>woodencase1</name>
+      <pose>0 -0.5 0  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://woodencase</uri>
+      <name>woodencase2</name>
+      <pose>0 0.5 0  0 0 0</pose>
+    </include>
+
+
+
+
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part01</name>
+      <pose>0.05 -0.6 0.3  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part02</name>
+      <pose>-0.05 -0.6 0.3  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part03</name>
+      <pose>0.1 -0.6 0.35  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part04</name>
+      <pose>-0.1 -0.6 0.35  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part05</name>
+      <pose>0.07 -0.6 0.4  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part06</name>
+      <pose>-0.07 -0.6 0.4  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part07</name>
+      <pose>0.12 -0.6 0.45  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part08</name>
+      <pose>-0.12 -0.6 0.45  0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://piston_rod_part</uri>
+      <name>piston_rod_part09</name>
+      <pose>0 -0.6 0.5  0 0 0</pose>
+    </include> -->
+
+
+
+
+
+
+    <!-- <state world_name='default'>
+      <sim_time>150 517000000</sim_time>
+      <real_time>150 594027395</real_time>
+      <wall_time>1423606992 994698489</wall_time>
+      <model name='prius'>
+        <pose>0 0 0 0 0 0</pose>
+        <link name='base_link'>
+          <velocity>1 0 0 0 -0 0</velocity>
+          <acceleration>1 -0 -0 0 -0 0</acceleration>
+        </link>
+      </model>
+    </state> -->
+  
+    
+  </world>
+</sdf>
