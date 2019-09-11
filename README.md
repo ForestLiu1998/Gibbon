@@ -2,12 +2,8 @@ The robot Simulation in Gazebo of ros.
 
 
 # Building
-1. `mkdir -p ~/Documents/ros/robot_simu/src`
-2. `cd ~/Documents/ros/robot_simu/src`
-3. `git clone git@github.com:chunxiaoshu/robot_simu.git`
-4. `cd ~/Documents/ros/robot_simu`
-5. `catkin_make`
-6. `source devel/setup.bash`
+1. `catkin_make`
+2. `source devel/setup.bash`
 
 
 # Running
