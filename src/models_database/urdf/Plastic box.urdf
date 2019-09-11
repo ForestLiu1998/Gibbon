@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="box">
+
+  <link name="chassis">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="$(find models_database)/meshes/Plastic box.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+
+    <collision name="chassis">
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="$(find models_database)/meshes/Plastic box.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="1356.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="2581.13354740" ixy="0.0" ixz="0.0" iyy="591.30846112" iyz="0.0" izz="2681.95008628"/>
+    </inertial>
+  </link>
+  
+</robot>
