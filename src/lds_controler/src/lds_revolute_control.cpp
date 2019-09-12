@@ -13,6 +13,7 @@ double lds_ready;
 
 bool sample_flag = false;
 
+double reset_velocity=-0.05;
 
 
 
@@ -31,19 +32,19 @@ int main(int argc, char **argv) {
                <<"belonging to (0,1.570795)"<<std::endl;
       return -1;
   }*/
-  //设置步进角
-  double stepAngle=0.1;
-  std::cout<<"step angle is "<<stepAngle<<std::endl;
+  //设置转速
+  double velocity=0.05;
+  std::cout<<"setting velocity is "<<velocity<<std::endl;
   
   //ros初始化
-  // Publisher:     lds_position_pub    Float64      传输移动位置
+  // Publisher:     lds_velocity_pub    Float64      传输移动位置
   //                lds_stop_pub        Bool         发送结束请求
   // Subscriber:    lds_joint_state     JointState   接收角度信息
   //                lds_start_signal    Bool         接收开始请求
   ros::init(argc,argv,"lds_revolute");
   ros::NodeHandle lds_revolute;
-  ros::Publisher lds_position_pub = lds_revolute.advertise<std_msgs::Float64>(
-            "/lds_revolute/lds_revolute_position_controller/command",1);
+  ros::Publisher lds_velocity_pub = lds_revolute.advertise<std_msgs::Float64>(
+            "/lds_revolute/lds_revolute_velocity_controller/command",1);
   ros::Publisher lds_stop_pub = lds_revolute.advertise<std_msgs::Bool>(
             "/lds/stop",1);
   ros::Subscriber lds_joint_state = lds_revolute.subscribe<sensor_msgs::JointState>(
@@ -52,26 +53,31 @@ int main(int argc, char **argv) {
             "/lds/start",1,ldsStartCallback);
 
   ros::Rate loop_rate(1);
-  std_msgs::Float64 msg;
+  std_msgs::Float64 v;
   std_msgs::Bool sampleFlag;
   std::cout<<"system inited!"<<std::endl;
- 
+  double start_position;
+
   sampleFlag.data=false;
+
   while(ros::ok()){
       lds_stop_pub.publish(sampleFlag);
       std::cout<<"ready to start,waiting for order"<<std::endl;
-     
+      v.data=reset_velocity;
+      lds_velocity_pub.publish(v);
+      ros::spinOnce();
+      while(joint_position>0){
+        ros::spinOnce();
+      }
+      start_position=joint_position;
+      ros::spinOnce();
       if(lds_ready){
-        //初始化归位
           std::cout<<"pocessing*******************************************"<<std::endl;
-          msg.data=0;
-          lds_position_pub.publish(msg);
+          v.data=velocity;
+          lds_velocity_pub.publish(v);
           sampleFlag.data=true;
-          while(joint_position< PI){
-            msg.data = joint_position+stepAngle;
-            lds_position_pub.publish(msg);
+          while((joint_position-start_position)< PI){
             ros::spinOnce();
-            loop_rate.sleep();
           }
       lds_stop_pub.publish(sampleFlag);
       loop_rate.sleep();

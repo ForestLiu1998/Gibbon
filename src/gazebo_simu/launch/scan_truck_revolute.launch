@@ -32,7 +32,7 @@
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="/lds_revolute" args="lds_revolute_position_controller joint_state_controller"/>
+    output="screen" ns="/lds_revolute" args="lds_revolute_velocity_controller joint_state_controller"/>
 
  
 
