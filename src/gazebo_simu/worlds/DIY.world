@@ -2,7 +2,7 @@
   <world name='default'>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>1.08294 -0.092969 0.904974 0 1.05164 2.98819</pose>
+        <pose frame=''>1.3626 -0.134927 1.57959 0 1.05164 2.98819</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -91,724 +91,6 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='abbrobot'>
-      <link name='base_link'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose frame=''>-0.04204 8e-05 0.07964 0 -0 0</pose>
-          <mass>6.215</mass>
-          <inertia>
-            <ixx>0.0247272</ixx>
-            <ixy>-8.0784e-05</ixy>
-            <ixz>0.00130902</ixz>
-            <iyy>0.0491285</iyy>
-            <iyz>-8.0419e-06</iyz>
-            <izz>0.0472376</izz>
-          </inertia>
-        </inertial>
-        <collision name='base_link_collision'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/collision/base_link.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='base_link_visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/visual/base_link.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='world-base_link-fixed' type='fixed'>
-        <child>base_link</child>
-        <parent>world</parent>
-      </joint>
-      <link name='link_1'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <inertial>
-          <pose frame=''>9.8e-05 -0.00012 0.23841 0 -0 0</pose>
-          <mass>3.067</mass>
-          <inertia>
-            <ixx>0.0142175</ixx>
-            <ixy>-1.28579e-05</ixy>
-            <ixz>-2.31364e-05</ixz>
-            <iyy>0.0144041</iyy>
-            <iyz>1.93404e-05</iyz>
-            <izz>0.0104533</izz>
-          </inertia>
-        </inertial>
-        <collision name='link_1_collision'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/collision/link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='link_1_visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/visual/link_1.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='joint_1' type='revolute'>
-        <child>link_1</child>
-        <parent>base_link</parent>
-        <axis>
-          <xyz>0 0 1</xyz>
-          <limit>
-            <lower>-2.87979</lower>
-            <upper>2.87979</upper>
-            <effort>0</effort>
-            <velocity>4.36332</velocity>
-          </limit>
-          <dynamics>
-            <damping>0</damping>
-            <friction>0</friction>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-          <use_parent_model_frame>1</use_parent_model_frame>
-        </axis>
-      </joint>
-      <link name='link_2'>
-        <pose frame=''>0 0 0.29 0 -0 0</pose>
-        <inertial>
-          <pose frame=''>0.00078 -0.00212 0.10124 0 -0 0</pose>
-          <mass>3.909</mass>
-          <inertia>
-            <ixx>0.0603111</ixx>
-            <ixy>9.83431e-06</ixy>
-            <ixz>5.72407e-05</ixz>
-            <iyy>0.041569</iyy>
-            <iyz>-0.00050497</iyz>
-            <izz>0.0259548</izz>
-          </inertia>
-        </inertial>
-        <collision name='link_2_collision'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/collision/link_2.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='link_2_visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/visual/link_2.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='joint_2' type='revolute'>
-        <child>link_2</child>
-        <parent>link_1</parent>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1.91986</lower>
-            <upper>1.91986</upper>
-            <effort>0</effort>
-            <velocity>4.36332</velocity>
-          </limit>
-          <dynamics>
-            <damping>0</damping>
-            <friction>0</friction>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-          <use_parent_model_frame>1</use_parent_model_frame>
-        </axis>
-      </joint>
-      <link name='link_3'>
-        <pose frame=''>0 0 0.56 0 -0 0</pose>
-        <inertial>
-          <pose frame=''>0.02281 0.00106 0.05791 0 -0 0</pose>
-          <mass>2.944</mass>
-          <inertia>
-            <ixx>0.00835606</ixx>
-            <ixy>-8.01545e-05</ixy>
-            <ixz>0.00142884</ixz>
-            <iyy>0.016713</iyy>
-            <iyz>-0.000182227</iyz>
-            <izz>0.0126984</izz>
-          </inertia>
-        </inertial>
-        <collision name='link_3_collision'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/collision/link_3.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='link_3_visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/visual/link_3.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='joint_3' type='revolute'>
-        <child>link_3</child>
-        <parent>link_2</parent>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-1.91986</lower>
-            <upper>1.22173</upper>
-            <effort>0</effort>
-            <velocity>4.36332</velocity>
-          </limit>
-          <dynamics>
-            <damping>0</damping>
-            <friction>0</friction>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-          <use_parent_model_frame>1</use_parent_model_frame>
-        </axis>
-      </joint>
-      <link name='link_4'>
-        <pose frame=''>0 0 0.63 0 -0 0</pose>
-        <inertial>
-          <pose frame=''>0.2247 0.00015 0.00041 0 -0 0</pose>
-          <mass>1.328</mass>
-          <inertia>
-            <ixx>0.00284661</ixx>
-            <ixy>-2.12765e-05</ixy>
-            <ixz>-1.6435e-05</ixz>
-            <iyy>0.00401346</iyy>
-            <iyz>1.31336e-05</iyz>
-            <izz>0.0052535</izz>
-          </inertia>
-        </inertial>
-        <collision name='link_4_collision'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/collision/link_4.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='link_4_visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/visual/link_4.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='joint_4' type='revolute'>
-        <child>link_4</child>
-        <parent>link_3</parent>
-        <axis>
-          <xyz>1 0 0</xyz>
-          <limit>
-            <lower>-2.79253</lower>
-            <upper>2.79253</upper>
-            <effort>0</effort>
-            <velocity>5.58505</velocity>
-          </limit>
-          <dynamics>
-            <damping>0</damping>
-            <friction>0</friction>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-          <use_parent_model_frame>1</use_parent_model_frame>
-        </axis>
-      </joint>
-      <link name='link_5'>
-        <pose frame=''>0.302 0 0.63 0 -0 0</pose>
-        <inertial>
-          <pose frame=''>-0.00109 3.7e-05 6.2e-05 0 -0 0</pose>
-          <mass>0.546</mass>
-          <inertia>
-            <ixx>0.000404891</ixx>
-            <ixy>1.61943e-06</ixy>
-            <ixz>8.46805e-07</ixz>
-            <iyy>0.000892825</iyy>
-            <iyz>-1.51792e-08</iyz>
-            <izz>0.000815468</izz>
-          </inertia>
-        </inertial>
-        <collision name='link_5_collision'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/collision/link_5.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='link_5_visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/visual/link_5.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='joint_5' type='revolute'>
-        <child>link_5</child>
-        <parent>link_4</parent>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>-2.0944</lower>
-            <upper>2.0944</upper>
-            <effort>0</effort>
-            <velocity>5.58505</velocity>
-          </limit>
-          <dynamics>
-            <damping>0</damping>
-            <friction>0</friction>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-          <use_parent_model_frame>1</use_parent_model_frame>
-        </axis>
-      </joint>
-      <link name='link_6'>
-        <pose frame=''>0.374 0 0.63 0 -0 0</pose>
-        <inertial>
-          <pose frame=''>-0.000851 -2e-05 -0 0 -0 0</pose>
-          <mass>1.137</mass>
-          <inertia>
-            <ixx>1.001</ixx>
-            <ixy>-1.44615e-07</ixy>
-            <ixz>-1.12289e-09</ixz>
-            <iyy>1.00101</iyy>
-            <iyz>-2.70385e-11</iyz>
-            <izz>1.00101</izz>
-          </inertia>
-        </inertial>
-        <collision name='link_6_collision'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/collision/link_6.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='link_6_fixed_joint_lump__hand_collision_1'>
-          <pose frame=''>0 0 0 3.14159 1.57079 3.14159</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/hand/collision/hand.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='link_6_visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/irb120_3_58/visual/link_6.stl</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <visual name='link_6_fixed_joint_lump__hand_visual_1'>
-          <pose frame=''>0 0 0 3.14159 1.57079 3.14159</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/hand/visual/hand.dae</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <velocity_decay/>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='joint_6' type='revolute'>
-        <child>link_6</child>
-        <parent>link_5</parent>
-        <axis>
-          <xyz>1 0 0</xyz>
-          <limit>
-            <lower>-6.98132</lower>
-            <upper>6.98132</upper>
-            <effort>0</effort>
-            <velocity>7.33038</velocity>
-          </limit>
-          <dynamics>
-            <damping>0</damping>
-            <friction>0</friction>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-          <use_parent_model_frame>1</use_parent_model_frame>
-        </axis>
-      </joint>
-      <link name='leftfinger'>
-        <pose frame=''>0.4324 0 0.63 3.14159 1.57079 3.14159</pose>
-        <inertial>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <collision name='leftfinger_collision'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/hand/collision/finger.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='leftfinger_visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/hand/visual/finger.dae</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='finger_joint1' type='prismatic'>
-        <child>leftfinger</child>
-        <parent>link_6</parent>
-        <axis>
-          <xyz>0 1 0</xyz>
-          <limit>
-            <lower>0</lower>
-            <upper>0.04</upper>
-            <effort>20</effort>
-            <velocity>0.2</velocity>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-          <use_parent_model_frame>1</use_parent_model_frame>
-        </axis>
-      </joint>
-      <link name='rightfinger'>
-        <pose frame=''>0.4324 0 0.63 3.14159 1.57079 3.14159</pose>
-        <inertial>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <collision name='rightfinger_collision'>
-          <pose frame=''>0 0 0 0 -0 -3.14159</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/hand/collision/finger.stl</uri>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-              <torsional>
-                <ode/>
-              </torsional>
-            </friction>
-            <bounce/>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='rightfinger_visual'>
-          <pose frame=''>0 0 0 0 -0 -3.14159</pose>
-          <geometry>
-            <mesh>
-              <scale>1 1 1</scale>
-              <uri>/home/mo516/Desktop/robot_gripper_ws/src/robot_description/meshes/hand/visual/finger.dae</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Orange</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <gravity>0</gravity>
-        <velocity_decay/>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='finger_joint2' type='prismatic'>
-        <child>rightfinger</child>
-        <parent>link_6</parent>
-        <axis>
-          <xyz>0 -1 0</xyz>
-          <limit>
-            <lower>0</lower>
-            <upper>0.04</upper>
-            <effort>20</effort>
-            <velocity>0.2</velocity>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-          <use_parent_model_frame>1</use_parent_model_frame>
-        </axis>
-      </joint>
-      <static>0</static>
-      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
-        <robotNamespace>/</robotNamespace>
-      </plugin>
-      <pose frame=''>0 0 0 0 -0 0</pose>
-    </model>
     <model name='plastic_box'>
       <static>1</static>
       <link name='link'>
@@ -852,68 +134,10 @@
       <pose frame=''>0.336888 -0.500277 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>755 393000000</sim_time>
-      <real_time>126 220126958</real_time>
-      <wall_time>1568276489 110096676</wall_time>
-      <iterations>123523</iterations>
-      <model name='abbrobot'>
-        <pose frame=''>0 -0 0 -0 -0 -0</pose>
-        <scale>1 1 1</scale>
-        <link name='base_link'>
-          <pose frame=''>0 -0 0 -0 -0 -0</pose>
-          <velocity>-0 -0 -0 0 -0 0</velocity>
-          <acceleration>1e-06 1e-05 0 -0.000495 2.1e-05 5.5e-05</acceleration>
-          <wrench>6e-06 6.1e-05 0 0 -0 0</wrench>
-        </link>
-        <link name='leftfinger'>
-          <pose frame=''>0.4324 4e-06 0.63 3.08945 1.57079 3.08946</pose>
-          <velocity>0 0 0 0 0 -2e-06</velocity>
-          <acceleration>4e-06 0.001534 2e-06 0 0 -0.000704</acceleration>
-          <wrench>4e-06 0.001534 2e-06 0 -0 0</wrench>
-        </link>
-        <link name='link_1'>
-          <pose frame=''>0 -0 0 0 -0 9e-06</pose>
-          <velocity>-0 -0 -0 0 0 -1e-06</velocity>
-          <acceleration>-7.6e-05 -0.001021 -3e-06 -0.000275 6e-05 0.002872</acceleration>
-          <wrench>-0.000233 -0.003133 -9e-06 0 -0 0</wrench>
-        </link>
-        <link name='link_2'>
-          <pose frame=''>0 -0 0.29 0 -0 9e-06</pose>
-          <velocity>-0 -0 -0 0 0 -1e-06</velocity>
-          <acceleration>-4.4e-05 -0.001126 -4e-06 0.000328 0.000301 0.002746</acceleration>
-          <wrench>-0.000171 -0.0044 -1.7e-05 0 -0 0</wrench>
-        </link>
-        <link name='link_3'>
-          <pose frame=''>0 -0 0.56 0 -0 9e-06</pose>
-          <velocity>0 -0 -0 0 0 -1e-06</velocity>
-          <acceleration>1e-06 -0.001109 -5e-06 0.000474 2.7e-05 0.002493</acceleration>
-          <wrench>2e-06 -0.003264 -1.4e-05 0 -0 0</wrench>
-        </link>
-        <link name='link_4'>
-          <pose frame=''>0 -0 0.63 0 -0 9e-06</pose>
-          <velocity>0 0 0 -1e-06 -0 -1e-06</velocity>
-          <acceleration>4e-06 7.7e-05 1e-06 2.7e-05 4.7e-05 0.002256</acceleration>
-          <wrench>5e-06 0.000102 1e-06 0 -0 0</wrench>
-        </link>
-        <link name='link_5'>
-          <pose frame=''>0.302 3e-06 0.63 0 -0 9e-06</pose>
-          <velocity>0 -0 0 -1e-06 0 0</velocity>
-          <acceleration>4e-06 0.000338 -2e-06 2.7e-05 1.6e-05 0.004723</acceleration>
-          <wrench>2e-06 0.000185 -1e-06 0 -0 0</wrench>
-        </link>
-        <link name='link_6'>
-          <pose frame=''>0.374 3e-06 0.63 0 -0 9e-06</pose>
-          <velocity>0 0 0 0 0 -2e-06</velocity>
-          <acceleration>4e-06 0.001487 2e-06 0 0 -0.000688</acceleration>
-          <wrench>5e-06 0.001691 2e-06 0 -0 0</wrench>
-        </link>
-        <link name='rightfinger'>
-          <pose frame=''>0.4324 4e-06 0.63 3.08945 1.57079 3.08946</pose>
-          <velocity>0 0 0 0 0 -2e-06</velocity>
-          <acceleration>4e-06 0.001497 2e-06 0 0 -0.000698</acceleration>
-          <wrench>4e-06 0.001497 2e-06 0 -0 0</wrench>
-        </link>
-      </model>
+      <sim_time>765 992000000</sim_time>
+      <real_time>11 148400187</real_time>
+      <wall_time>1568464926 896403375</wall_time>
+      <iterations>10599</iterations>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -925,133 +149,133 @@
         </link>
       </model>
       <model name='my wooden_peg'>
-        <pose frame=''>0.420498 -0.240055 0.014519 1.56998 0.229752 1.546</pose>
+        <pose frame=''>0.420257 -0.249869 0.014519 1.56971 -0.751768 1.54692</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.460486 -0.241039 0.014551 1.56998 0.229752 1.546</pose>
+          <pose frame=''>0.460245 -0.250853 0.014551 1.56971 -0.751768 1.54692</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-2.3e-05 -0.000131 -0.000122 0.129493 -0.005248 9.8e-05</acceleration>
-          <wrench>-0 -2e-06 -2e-06 0 -0 0</wrench>
+          <acceleration>0.005491 -0.049727 0.00704 1.37194 -0.766836 0.040087</acceleration>
+          <wrench>9.6e-05 -0.00087 0.000123 0 -0 0</wrench>
         </link>
       </model>
       <model name='my wooden_peg_clone'>
-        <pose frame=''>0.403091 -0.192502 0.014505 -1.56992 0.476841 -1.76031</pose>
+        <pose frame=''>0.401208 -0.202297 0.014504 -1.56269 1.47417 -1.75264</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.442372 -0.200053 0.014537 -1.56992 0.476841 -1.76031</pose>
+          <pose frame=''>0.440489 -0.209848 0.014535 -1.56269 1.47417 -1.75264</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.000199 -0.001047 0.004042 1.03184 -0.203012 0.000777</acceleration>
-          <wrench>-3e-06 -1.8e-05 7.1e-05 0 -0 0</wrench>
+          <acceleration>-0.000574 0.002508 -0.002261 -1.3992 0.179204 -0.001116</acceleration>
+          <wrench>-1e-05 4.4e-05 -4e-05 0 -0 0</wrench>
         </link>
       </model>
       <model name='my wooden_peg_clone_clone'>
-        <pose frame=''>0.400328 -0.171607 0.014503 -1.55691 -1.51443 -1.77446</pose>
+        <pose frame=''>0.400234 -0.172101 0.014503 -1.56344 -1.46421 -1.76791</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.43961 -0.179154 0.014534 -1.55691 -1.51443 -1.77446</pose>
+          <pose frame=''>0.439515 -0.179647 0.014534 -1.56344 -1.46421 -1.76791</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>4e-05 -6e-06 8.2e-05 -0.132981 0.03254 -9.9e-05</acceleration>
-          <wrench>1e-06 -0 1e-06 0 -0 0</wrench>
+          <acceleration>-0.000192 -0.000975 0.004001 1.14515 -0.220052 0.000841</acceleration>
+          <wrench>-3e-06 -1.7e-05 7e-05 0 -0 0</wrench>
         </link>
       </model>
       <model name='my wooden_peg_clone_clone_0'>
-        <pose frame=''>0.410869 -0.132922 0.014511 1.56918 1.06475 1.37978</pose>
+        <pose frame=''>0.410776 -0.133406 0.014511 1.56931 1.01549 1.37993</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.450152 -0.140461 0.014543 1.56918 1.06475 1.37978</pose>
+          <pose frame=''>0.450059 -0.140945 0.014543 1.56931 1.01549 1.37993</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.00026 -0.000209 -0.000468 0.351294 -0.092656 0.000262</acceleration>
-          <wrench>-5e-06 -4e-06 -8e-06 0 -0 0</wrench>
+          <acceleration>-0.000181 -0.000923 0.003998 1.08205 -0.207726 0.000794</acceleration>
+          <wrench>-3e-06 -1.6e-05 7e-05 0 -0 0</wrench>
         </link>
       </model>
       <model name='my wooden_peg_clone_clone_1'>
-        <pose frame=''>0.434303 0.081891 0.01453 1.56133 1.48806 1.37079</pose>
+        <pose frame=''>0.434246 0.081595 0.01453 1.56385 1.45795 1.37332</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.473579 0.074314 0.014561 1.56133 1.48806 1.37079</pose>
+          <pose frame=''>0.473522 0.074018 0.014561 1.56385 1.45795 1.37332</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.000189 -0.00098 -0 1.14838 -0.22154 0.000843</acceleration>
-          <wrench>-3e-06 -1.7e-05 -0 0 -0 0</wrench>
+          <acceleration>-0.000129 -0.000934 0.000426 1.28713 -0.241762 0.000852</acceleration>
+          <wrench>-2e-06 -1.6e-05 7e-06 0 -0 0</wrench>
         </link>
       </model>
       <model name='my wooden_peg_clone_clone_2'>
-        <pose frame=''>0.374113 -0.146218 0.014482 -1.56968 -0.791803 -1.76127</pose>
+        <pose frame=''>0.374019 -0.146704 0.014482 -1.56974 -0.742298 -1.76119</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.413395 -0.15376 0.014513 -1.56968 -0.791803 -1.76127</pose>
+          <pose frame=''>0.413302 -0.154246 0.014513 -1.56974 -0.742298 -1.76119</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-7e-05 -0.000252 0.00047 0.503913 -0.090104 0.000397</acceleration>
-          <wrench>-1e-06 -4e-06 8e-06 0 -0 0</wrench>
+          <acceleration>-0.000186 -0.000954 0.004001 1.11809 -0.214664 0.000821</acceleration>
+          <wrench>-3e-06 -1.7e-05 7e-05 0 -0 0</wrench>
         </link>
       </model>
       <model name='my wooden_peg_clone_clone_3'>
-        <pose frame=''>0.360092 -0.077259 0.014471 1.57148 -1.38 -2.98139</pose>
+        <pose frame=''>0.360067 -0.077262 0.014152 1.57147 -1.37795 -2.98137</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>0.353685 -0.037775 0.014466 1.57148 -1.38 -2.98139</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.011713 -0.013254 0.008337 3.09102 -0.625262 3.13976</acceleration>
-          <wrench>0.000205 -0.000232 0.000146 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='my wooden_peg_clone_clone_3_clone'>
-        <pose frame=''>0.375077 -0.044873 0.014483 1.57116 -1.2106 -2.98106</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.368669 -0.005389 0.014478 1.57116 -1.2106 -2.98106</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.003229 -0.000448 -0.003459 -1.91307 -1.20857 -3.13915</acceleration>
-          <wrench>-5.7e-05 -8e-06 -6.1e-05 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='my wooden_peg_clone_clone_3_clone_0'>
-        <pose frame=''>0.400704 -0.074775 0.014503 1.57106 1.03686 -2.97482</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.394072 -0.035328 0.014498 1.57106 1.03686 -2.97482</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.001903 -0.001905 0.003281 0.470499 -1.56978 -0.000229</acceleration>
-          <wrench>-3.3e-05 -3.3e-05 5.7e-05 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='my wooden_peg_clone_clone_3_clone_1'>
-        <pose frame=''>0.360253 0.061092 0.014471 1.57096 0.648558 -2.98087</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.353855 0.100577 0.014466 1.57096 0.648558 -2.98087</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.011134 0.001031 -0.005487 0.579783 -1.2092 3.13961</acceleration>
-          <wrench>0.000195 1.8e-05 -9.6e-05 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='my wooden_peg_clone_clone_3_clone_2'>
-        <pose frame=''>0.551749 0.223837 0.01476 1.57428 -0.844152 -1.57416</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.511749 0.223868 0.014667 1.57428 -0.844152 -1.57416</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-3e-06 2.5e-05 1.1e-05 -0.028914 -0.000242 -7e-05</acceleration>
-          <wrench>-0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='my wooden_peg_clone_clone_4'>
-        <pose frame=''>0.476373 0.038221 0.015303 -1.57528 -0.46315 1.71968</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.436804 0.032367 0.015143 -1.57528 -0.46315 1.71968</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.011277 -0.004913 -0.218775 -2.18662 -0.656277 0.014304</acceleration>
-          <wrench>-0.000197 -8.6e-05 -0.003829 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='my wooden_peg_clone_clone_5'>
-        <pose frame=''>0.355819 -0.203823 0.014272 -1.57001 0.106563 -1.76015</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>0.395103 -0.211356 0.014303 -1.57001 0.106563 -1.76015</pose>
+          <pose frame=''>0.35366 -0.037778 0.014147 1.57147 -1.37795 -2.98137</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -0.1715 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='my wooden_peg_clone_clone_3_clone'>
+        <pose frame=''>0.37507 -0.044873 0.014483 1.57116 -1.21077 -2.98108</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.368664 -0.005389 0.014478 1.57116 -1.21077 -2.98108</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.005157 -0.000836 0.004086 0.979911 0.243713 0.000723</acceleration>
+          <wrench>-9e-05 -1.5e-05 7.2e-05 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='my wooden_peg_clone_clone_3_clone_0'>
+        <pose frame=''>0.400685 -0.074778 0.014503 1.57106 1.03877 -2.97483</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.394054 -0.035331 0.014498 1.57106 1.03877 -2.97483</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.0052 -0.000874 0.004087 1.02391 0.192151 0.000755</acceleration>
+          <wrench>-9.1e-05 -1.5e-05 7.2e-05 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='my wooden_peg_clone_clone_3_clone_1'>
+        <pose frame=''>0.360253 0.061092 0.014471 1.57096 0.648614 -2.98087</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.353855 0.100577 0.014466 1.57096 0.648614 -2.98087</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.010922 0.001717 -0.001988 0.56868 -0.796489 3.13963</acceleration>
+          <wrench>0.000191 3e-05 -3.5e-05 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='my wooden_peg_clone_clone_3_clone_2'>
+        <pose frame=''>0.551748 0.223861 0.014766 1.57439 -0.846481 -1.57427</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.511748 0.223892 0.014671 1.57439 -0.846481 -1.57427</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -3e-06 -0 0.002873 6e-06 6e-06</acceleration>
+          <wrench>0 -0 -0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='my wooden_peg_clone_clone_4'>
+        <pose frame=''>0.476432 0.037694 0.015034 -1.57769 -0.516151 1.72107</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.436863 0.03184 0.014795 -1.57769 -0.516151 1.72107</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -0 0 0.000266 3.7e-05 1e-06</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='my wooden_peg_clone_clone_5'>
+        <pose frame=''>0.353945 -0.213586 0.014466 -1.56907 1.10025 -1.75879</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.393228 -0.221122 0.014497 -1.56907 1.10025 -1.75879</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.006102 -0.030831 -0.002715 2.55386 -1.36738 0.030368</acceleration>
+          <wrench>-0.000107 -0.00054 -4.8e-05 0 -0 0</wrench>
         </link>
       </model>
       <model name='plastic_box'>
