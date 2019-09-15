@@ -1,35 +1,28 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="plastic_box">
-    <static>false</static>
+    <static>true</static>
     <link name="link">
+      <pose>0 0 0 1.57 0 1.57</pose>
+      <inertial>
+        <mass>3</mass>
+      </inertial>
       <collision name="collision">
         <geometry>
           <mesh>
             <uri>model://plastic_box/meshes/Plastic box.dae</uri>
+            <scale>0.001 0.0008 0.001</scale>
           </mesh>
-	  
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
             <uri>model://plastic_box/meshes/Plastic box.dae</uri>
+            <scale>0.001 0.0008 0.001</scale>
           </mesh>
-          
         </geometry>
       </visual>
-      <inertial>
-	<inertia>
-	 <ixx>1.0</ixx>
-	 <ixy>0</ixy>
-	 <ixz>0</ixz>
-	 <iyy>1.0</iyy>
-	 <iyz>0</iyz>
-	 <izz>1.0</izz>
-	</inertia>
-	<mass>1.0</mass>
-      </inertial>
     </link>
   </model>
 </sdf>
