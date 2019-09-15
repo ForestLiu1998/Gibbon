@@ -51,10 +51,10 @@ LdsToPcl::LdsToPcl() {
 
 void LdsToPcl::ldssubCallback(const sensor_msgs::LaserScan::ConstPtr& scan){
 	const int point_num = 1081;
-	const int save_point_num = 400;
+	const int save_point_num = 200;
 	const int save_point_min = (point_num - save_point_num) / 2;
 	const int save_point_max = (point_num - save_point_num) / 2;
-	const double lds_height = 5.0;
+	const double lds_height = 1.0;
 	double x_, y_, z_;
 
 	float angle_min = scan->angle_min;
@@ -122,7 +122,7 @@ void LdsToPcl::ldssubCallback(const sensor_msgs::LaserScan::ConstPtr& scan){
 		point_cloud_publisher.publish(point_save);
 	}
 
-	if (i == 100 || lds_stop) {
+	if (i == 4000 || lds_stop) {
 		
 		ros::Time end_time = ros::Time::now();
 		

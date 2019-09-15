@@ -5,21 +5,25 @@
 #include <iostream>
 #include <sstream>
 #include <sensor_msgs/JointState.h>
+#include<time.h>
 
-double joint_position;
+double joint_position ;
 
 void ldsPositionCallback(const sensor_msgs::JointState::ConstPtr& joint_states) {
 	joint_position = joint_states->position[0];
 }
 
 int main(int argc, char **argv) {
-  if ( argc != 4) {
-    std::cout << "no enough parameter" << std::endl;
-    return -1;
-  }
-  double lds_position_start = atof(argv[1]);
-  double lds_position_stop = atof(argv[2]);
-  double speed = atof(argv[3]);
+  // if ( argc != 4) {
+  //   std::cout << "no enough parameter" << std::endl;
+  //   return -1;
+  // }
+  // double lds_position_start = atof(argv[1]);
+  // double lds_position_stop = atof(argv[2]);
+  // double speed = atof(argv[3]);
+   double lds_position_start =0;
+   double lds_position_stop = -0.5;  
+   double speed =  0.03;
   std::cout << "speed " << speed << std::endl;
 
   ros::init(argc, argv, "lds_rail");
@@ -34,18 +38,19 @@ int main(int argc, char **argv) {
   ros::Subscriber lds_joint_state = lds_rail.subscribe<sensor_msgs::JointState>(
           "/lds_rail/joint_states", 1, ldsPositionCallback);
 
-  int i = 0, t = 0;
+  int i = 0;
   std_msgs::Float64 msg;
   ros::Rate loop_rate(10);
 
-  while (ros::ok() && (joint_position - lds_position_start > 0.01 || joint_position - lds_position_start < -0.01 || i < 3)) {
-    msg.data = lds_position_start;
-    lds_position_pub.publish(msg);
-    std::cout << "before, joint position " << joint_position << "    data " << msg.data << std::endl;
+  while (ros::ok() && (joint_position - lds_position_start > 0.01 || joint_position - lds_position_start < -0.01 || i < 3)) 
+  {
+      msg.data = lds_position_start;
+      lds_position_pub.publish(msg);
+      std::cout << "before, joint position " << joint_position << "    data " << msg.data << std::endl;
 
-    ros::spinOnce();
-    loop_rate.sleep();
-    ++i;
+      ros::spinOnce();
+      loop_rate.sleep();
+      ++i;
   }
 
   std_msgs::Bool lds_ready;
@@ -53,17 +58,19 @@ int main(int argc, char **argv) {
   lds_ready_pub.publish(lds_ready);
   std::cout << "at the start" << std::endl;
 
+ros::Time start_time = ros::Time::now();
+ros::Time end_time = ros::Time::now();
   while (ros::ok()) {
     if (joint_position < lds_position_stop) {
       break;
     }
-    msg.data = lds_position_start - speed * t;
+    msg.data = lds_position_start - speed * (end_time.sec-start_time.sec);
     lds_position_pub.publish(msg);
-    ++t;
     std::cout << "joint position " << joint_position << "    data " << msg.data << std::endl;
 
     ros::spinOnce();
     loop_rate.sleep();
+    end_time = ros::Time::now();
   }
 
   for (int i = 0; i < 10; ++i) {
