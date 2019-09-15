@@ -3,7 +3,7 @@
 
   <xacro:property name="update_rate" value="25"/>
 
-  <xacro:include filename="$(find get_scan_data)/urdf/sick_lms5xx.urdf.xacro" />
+  <xacro:include filename="$(find gazebo_simu)/urdf/sick_lms5xx.urdf.xacro" />
   <xacro:sick_lms_5 name="sick_5xx" ros_topic="/lds_scan_data"
     length="0.159277" width="0.155002" height="0.196397" mass="3.7" x_offset="0.079205" z_offset="-0.053449"
     update_rate="${update_rate}" samples="1081" min_angle="-2.3561925" max_angle="2.3561925" 
