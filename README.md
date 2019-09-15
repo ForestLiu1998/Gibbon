@@ -17,5 +17,5 @@
      2.  lms5xx的激光照射角度范围是270°，角分辨率是0.25°，加上初始点，lms5xx扫描范围共能得到1+270/0.25=1081个点，并按顺序存储，get_lds_data_rail.cpp中取中
      心线两侧共save_point_num个点计算x,y,z并保存。
  
- [![lms111工作区域图表]](https://cdn.sick.com/media/pdf/2/42/842/dataSheet_LMS111-10100_1041114_zh.pdf)  
+ [[lms111工作区域图表]](https://cdn.sick.com/media/pdf/2/42/842/dataSheet_LMS111-10100_1041114_zh.pdf)  
  ![lms111工作区域图表](https://github.com/ForestLiu1998/Gibbon/raw/master/src/picture/lds工作区域图表.png)
