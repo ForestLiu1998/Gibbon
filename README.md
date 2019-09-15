@@ -12,8 +12,6 @@
    
 ### lds——lms5xx
 
-=
-
     1.  Gazebo中lds模型的坐标在其/joint_states话题发布中是以lds本身为原点建立的坐标系，所以尽管在gazebo世界中定义了lds位置为（0.8,0,0）,/joint_states话题依然发
     　布的位置为（0,0,0）
      
